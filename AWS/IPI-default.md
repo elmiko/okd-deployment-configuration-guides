@@ -23,7 +23,4 @@ using the default options for the installer.
   * 1 classic load balancer for the router
 * 21 elastic network interfaces, plus 1 interface per availability zone
 * 1 virtual private cloud gateway
-
-## Security
-
 * 10 distinct security groups

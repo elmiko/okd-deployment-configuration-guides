@@ -25,9 +25,6 @@ using the default options for the installer.
   * 1 per control plane node
   * 1 per compute node
   * 1 for the private control plane load balancer
-
-## Security
-
 * 2 network security groups
   * 1 for control plane allowing traffic on port 6443 from anywhere
   * 1 for compute allowing traffic on ports 80 and 443 from the internet
