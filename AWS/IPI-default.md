@@ -5,9 +5,9 @@ using the default options for the installer.
 
 ## Compute
 
-* 3 master nodes
+* 3 control plane nodes
   * instance type `m4.xlarge`, or `m5.xlarge` if previous not available in the region
-* 3 worker nodes
+* 3 compute nodes
   * instance type `m4.large`, or `m5.large` if previous not available in the region
 
 ## Networking
