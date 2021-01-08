@@ -3,7 +3,8 @@
 This repository contains a collection of documents describing known deployment configurations
 for OpenShift. The information is categorized by deployment platform and installation options,
 and tracks with the current release of the [OpenShift Container Platform](https://docs.openshift.com/container-platform/latest)
-except where noted.
+except where noted. Please note, these documents describe configurations for newly installed clusters
+and do not include resources which may be required during installation (eg bootstrap instances).
 
 These notes serve as a common place for sharing platform configurations, and exposing more of the
 [tribal knowledge](https://en.wikipedia.org/wiki/Tribal_knowledge) that has been aquired by
