@@ -1,14 +1,14 @@
-# OpenShift Deployment Configuration Notes
+# OKD Deployment Configuration Notes
 
 This repository contains a collection of documents describing known deployment configurations
-for OpenShift. The information is categorized by deployment platform and installation options,
-and tracks with the current release of the [OpenShift Container Platform](https://docs.openshift.com/container-platform/latest)
+for OKD. The information is categorized by deployment platform and installation options,
+and tracks with the current release of [OKD](https://docs.okd.io/latest/welcome/index.html)
 except where noted. Please note, these documents describe configurations for newly installed clusters
 and do not include resources which may be required during installation (eg bootstrap instances).
 
 These notes serve as a common place for sharing platform configurations, and exposing more of the
 [tribal knowledge](https://en.wikipedia.org/wiki/Tribal_knowledge) that has been aquired by
-developers and operators working closely with OpenShift.
+developers and operators working closely with OKD.
 
 ## Repository structure
 
