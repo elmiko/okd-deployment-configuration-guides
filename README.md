@@ -1,4 +1,4 @@
-# OKD Deployment Configuration Notes
+# OKD Deployment Configuration Guides
 
 This repository contains a collection of documents describing known deployment configurations
 for OKD. The information is categorized by deployment platform and installation options,
