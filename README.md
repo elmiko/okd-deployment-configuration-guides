@@ -30,5 +30,8 @@ deploying in a disconnected network scenario, you might create a file named `IPI
 For inspiration about how to structure content within your document, please see one of the `IPI-default.md`
 files.
 
+If you are documenting your personal "home lab" setup, please use your github username in the filename, for
+example `UPI-elmiko.md`.
+
 And if all else fails, please do not hesitate to open your pull request and start a discussions with your
 questions and concerns about implementation.
