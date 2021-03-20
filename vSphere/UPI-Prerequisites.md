@@ -482,6 +482,20 @@ backend ingress-https
     server worker3 worker3.c1.homelab.net:443 check
 ```
 
+## Reboot and check status
+
+Reboot Raspberry Pi:
+```
+sudo reboot
+```
+
+Check status of DNS/DHCP server and Load Balancer:
+```
+sudo systemctl status haproxy.service
+sudo systemctl status isc-dhcp-server.service
+sudo systemctl status bind9
+```
+
 ## Proxy (if on a private network)
 
 If the cluster will sit on a private network, you'll need a proxy for outgoing traffic, both for the install process and for regular operation. In the case of the former, the installer needs to pull containers from the external registires. In the case of the latter, the proxy is needed when applicaton containers need access to the outside world (e.g. yum installs, external code repositories like gitlab, etc.)
