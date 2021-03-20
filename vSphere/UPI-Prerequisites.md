@@ -255,7 +255,7 @@ zone "178.168.192.in-addr.arpa" {
 };
 ```
 
-Zone file for homlab.net:
+Zone file for **homlab.net**:
 /etc/bind/forward.homelab.net
 ```
 ;
@@ -305,7 +305,7 @@ $TTL 1W
 
 ### DNS records for OKD 4
 
-Zone file for c1.homelab.net (our OKD 4 cluster will be in this domain):
+Zone file for **c1.homelab.net** (our OKD 4 cluster will be in this domain):
 
 /etc/bind/forward.c1.homelab.net
 ```
