@@ -47,6 +47,14 @@ sudo apt-get install isc-dhcp-server
 
 ### Configure
 
+Enable DHCP server for IPv4 on eth0: 
+
+/etc/default/isc-dhcp-server
+```
+INTERFACESv4="eth0"
+INTERFACESv6=""
+```
+
 /etc/dhcp/dhcpd.conf
 ```
 # dhcpd.conf
