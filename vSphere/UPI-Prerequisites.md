@@ -5,11 +5,11 @@ In this example I describe the setup of a DNS/DHCP server and a Load Balancer on
 I use Raspberry Pi OS (debian based).
 
 ## IP Addresses of components in this example
-* Homelab subnet: 192.168.178.0/24
-* DSL router/gateway: 192.168.178.1
-* IP address of Raspberry Pi (DHCP/DNS/Load Balancer): 192.168.178.5
-* local domain: *homelab.net*
-* local cluster (name: c1) domain: *c1.homelab.net*
+* Homelab subnet: **192.168.178.0/24**
+* DSL router/gateway: **192.168.178.1**
+* IP address of Raspberry Pi (DHCP/DNS/Load Balancer): **192.168.178.5**
+* local domain: **homelab.net**
+* local cluster (name: c1) domain: **c1.homelab.net**
 * DHCP range: 192.168.178.40 ... 192.168.178.199
 * Static IPs for OKD's bootstrap, masters and workers
 
