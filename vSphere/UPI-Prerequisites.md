@@ -158,11 +158,6 @@ sudo apt install bind9 dnsutils
 
 ### Basic configuration
 
-For dynamic DNS (ddns) to work you should do this:
-```
-sudo chown -R bind:bind /etc/bind
-```
-
 /etc/bind/named.conf.options
 ```
 include "/etc/bind/rndc.key";
@@ -337,6 +332,13 @@ worker3 IN      A       192.168.178.223
 *.apps.c1.homelab.net.  IN CNAME load-balancer.c1.homelab.net.
 api-int.c1.homelab.net. IN CNAME load-balancer.c1.homelab.net.
 api.c1.homelab.net.     IN CNAME load-balancer.c1.homelab.net.
+```
+
+## Set file permissions
+
+For dynamic DNS (ddns) to work you should do this:
+```
+sudo chown -R bind:bind /etc/bind
 ```
 
 ## Load Balancer
