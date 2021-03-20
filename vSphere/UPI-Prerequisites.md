@@ -276,8 +276,8 @@ The name of the next file depends on the subnet that is used:
 
 /etc/bind/178.168.192.in-addr.arpa
 ```
-$TTL 604800     ; 1 week
-178.168.192.in-addr.arpa IN SOA ns1.homelab.net. root.homelab.net. (
+$TTL 1W
+@ IN SOA ns1.homelab.net. root.homelab.net. (
                                 2019070742 ; serial
                                 10800      ; refresh (3 hours)
                                 1800       ; retry (30 minutes)
