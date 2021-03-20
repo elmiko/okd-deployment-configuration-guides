@@ -5,11 +5,11 @@ In this example I describe the setup of a DNS/DHCP server and a Load Balancer on
 I use Raspberry Pi OS (debian based).
 
 ## IP Addresses of components in this example
-* Homelab subnet: 192.168.178.0/24
-* DSL router/gateway: 192.168.178.1
-* IP address of Raspberry Pi (DHCP/DNS/Load Balancer): 192.168.178.5
-* local domain: homelab.net
-* local cluster (name: c1) domain: c1.homelab.net
+* Homelab subnet: **192.168.178.0/24**
+* DSL router/gateway: **192.168.178.1**
+* IP address of Raspberry Pi (DHCP/DNS/Load Balancer): **192.168.178.5**
+* local domain: **homelab.net**
+* local cluster (name: c1) domain: **c1.homelab.net**
 * DHCP range: 192.168.178.40 ... 192.168.178.199
 * Static IPs for OKD's bootstrap, masters and workers
 
@@ -22,13 +22,17 @@ sudo reboot
 ```
 
 ## Set static IP address on Raspberry Pi
-/etc/dhcpcd.conf
+
+Add this:
 ```
 interface eth0
 static ip_address=192.168.178.5/24
 static routers=192.168.178.1
-static domain_name_servers=192.168.178.5
+static domain_name_servers=192.168.178.5 8.8.8.8
 ```
+to 
+
+/etc/dhcpcd.conf
 
 ## DHCP
 Ensure that no other DHCP servers are activated in the network of your homelab e.g. in your internet router.
@@ -42,6 +46,14 @@ sudo apt-get install isc-dhcp-server
 ```
 
 ### Configure
+
+Enable DHCP server for IPv4 on eth0: 
+
+/etc/default/isc-dhcp-server
+```
+INTERFACESv4="eth0"
+INTERFACESv6=""
+```
 
 /etc/dhcp/dhcpd.conf
 ```
@@ -154,11 +166,6 @@ sudo apt install bind9 dnsutils
 
 ### Basic configuration
 
-For dynamic DNS (ddns) to work you should do this:
-```
-sudo chown -R bind:bind /etc/bind
-```
-
 /etc/bind/named.conf.options
 ```
 include "/etc/bind/rndc.key";
@@ -248,7 +255,7 @@ zone "178.168.192.in-addr.arpa" {
 };
 ```
 
-Zone file for homlab.net:
+Zone file for **homlab.net**:
 /etc/bind/forward.homelab.net
 ```
 ;
@@ -272,8 +279,8 @@ The name of the next file depends on the subnet that is used:
 
 /etc/bind/178.168.192.in-addr.arpa
 ```
-$TTL 604800     ; 1 week
-178.168.192.in-addr.arpa IN SOA ns1.homelab.net. root.homelab.net. (
+$TTL 1W
+@ IN SOA ns1.homelab.net. root.homelab.net. (
                                 2019070742 ; serial
                                 10800      ; refresh (3 hours)
                                 1800       ; retry (30 minutes)
@@ -298,7 +305,7 @@ $TTL 604800     ; 1 week
 
 ### DNS records for OKD 4
 
-Zone file for c1.homelab.net (our OKD 4 cluster will be in this domain):
+Zone file for **c1.homelab.net** (our OKD 4 cluster will be in this domain):
 
 /etc/bind/forward.c1.homelab.net
 ```
@@ -333,6 +340,13 @@ worker3 IN      A       192.168.178.223
 *.apps.c1.homelab.net.  IN CNAME load-balancer.c1.homelab.net.
 api-int.c1.homelab.net. IN CNAME load-balancer.c1.homelab.net.
 api.c1.homelab.net.     IN CNAME load-balancer.c1.homelab.net.
+```
+
+## Set file permissions
+
+For dynamic DNS (ddns) to work you should do this:
+```
+sudo chown -R bind:bind /etc/bind
 ```
 
 ## Load Balancer
@@ -474,6 +488,20 @@ backend ingress-https
     server worker1 worker1.c1.homelab.net:443 check
     server worker2 worker2.c1.homelab.net:443 check
     server worker3 worker3.c1.homelab.net:443 check
+```
+
+## Reboot and check status
+
+Reboot Raspberry Pi:
+```
+sudo reboot
+```
+
+Check status of DNS/DHCP server and Load Balancer:
+```
+sudo systemctl status haproxy.service
+sudo systemctl status isc-dhcp-server.service
+sudo systemctl status bind9
 ```
 
 ## Proxy (if on a private network)
