@@ -28,7 +28,7 @@ Add this:
 interface eth0
 static ip_address=192.168.178.5/24
 static routers=192.168.178.1
-static domain_name_servers=192.168.178.5
+static domain_name_servers=192.168.178.5 8.8.8.8
 ```
 to 
 
