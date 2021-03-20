@@ -22,13 +22,17 @@ sudo reboot
 ```
 
 ## Set static IP address on Raspberry Pi
-/etc/dhcpcd.conf
+
+Add this:
 ```
 interface eth0
 static ip_address=192.168.178.5/24
 static routers=192.168.178.1
 static domain_name_servers=192.168.178.5
 ```
+to 
+
+/etc/dhcpcd.conf
 
 ## DHCP
 Ensure that no other DHCP servers are activated in the network of your homelab e.g. in your internet router.
