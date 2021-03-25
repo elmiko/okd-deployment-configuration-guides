@@ -1,16 +1,24 @@
+---
+authors:
+  - "@elmiko"
+last-updated: "2021-03-24"
+okd-version: "4.7"
+---
 # Azure IPI Default Deployment
 
 This describes the resources used by OpenShift after perfoming an installation
 using the default options for the installer.
 
-## Compute
+## Infrastructure
+
+### Compute
 
 * 3 control plane nodes
   * instance type `Standard_D8s_v3`
 * 3 compute nodes
   * instance type `Standard_D4s_v3`
 
-## Networking
+### Networking
 
 * 1 virtual network (VNet) containing 2 subnets
 * 6 network interfaces
@@ -29,3 +37,7 @@ using the default options for the installer.
   * 1 for control plane allowing traffic on port 6443 from anywhere
   * 1 for compute allowing traffic on ports 80 and 443 from the internet
 
+## Deployment
+
+See the [OKD documentation](https://docs.okd.io/latest/installing/installing_azure/installing-azure-account.html)
+to proceed with deployment.

@@ -1,17 +1,17 @@
+---
+authors:
+  - "@lobziik"
+last-updated: "2021-03-24"
+okd-version: "4.7"
+---
 # vSphere IPI Deployment
 
 This describes the resources used by OpenShift after perfoming an installation
 using the required options for the installer.
 
-## Miscellaneous
+## Infrastructure
 
-* tag category with format `openshift-{cluster name}-{generated cluster id}`
-* tag with format `{cluster name}-{generated cluster id}`
-* folder with title format `{cluster name}-{generated cluster id}`
-* disabled virtual machine with name `{cluster name}-rhcos-{generated cluster id}` which using as template for further scaling
-
-## Compute
-
+### Compute
 All vms stored within folder described above and tagged with tag created by installer.
 
 * 3 control plane vms (name format: `{cluster name}-{generated cluster id}-master-{0,1,2}`)
@@ -24,6 +24,18 @@ All vms stored within folder described above and tagged with tag created by inst
   * 8 GB RAM
   * 120 GB storage
 
-## Networking
+### Networking
 
 Should be set up by user. Installer doesn't create anything there. Network name should be provided as installer argument.
+
+### Miscellaneous
+
+* tag category with format `openshift-{cluster name}-{generated cluster id}`
+* tag with format `{cluster name}-{generated cluster id}`
+* folder with title format `{cluster name}-{generated cluster id}`
+* disabled virtual machine with name `{cluster name}-rhcos-{generated cluster id}` which using as template for further scaling
+
+## Deployment
+
+See the [OKD documentation](https://docs.okd.io/latest/installing/installing_vsphere/installing-vsphere-installer-provisioned.html)
+to proceed with deployment.
