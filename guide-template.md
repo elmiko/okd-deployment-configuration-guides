@@ -115,7 +115,7 @@ This section is for in-depth explanations of any setup work that was done before
 This section is where you can talk about how you ran the installation process, and what options you chose along the way.
 
 * How did you install your cluster?
-* Are there any special considerations that should be made before attempting a similar process?
+* Are there any special considerations before attempting a similar process?
 * Describe the steps you took to install OKD on your infrastructure.
 * Use `code blocks` to share relevant scripts and commands that your ran.
 ```
