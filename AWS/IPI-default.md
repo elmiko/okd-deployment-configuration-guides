@@ -1,16 +1,24 @@
+---
+authors:
+  - "@elmiko"
+last-updated: "2021-03-24"
+okd-version: "4.7"
+---
 # AWS IPI Default Deployment
 
 This describes the resources used by OpenShift after perfoming an installation
 using the default options for the installer.
 
-## Compute
+## Infrastructure
+
+### Compute
 
 * 3 control plane nodes
   * instance type `m4.xlarge`, or `m5.xlarge` if previous not available in the region
 * 3 compute nodes
   * instance type `m4.large`, or `m5.large` if previous not available in the region
 
-## Networking
+### Networking
 
 * 1 virtual private cloud
 * 1 public subnet per availability zone in the region
@@ -24,3 +32,8 @@ using the default options for the installer.
 * 21 elastic network interfaces, plus 1 interface per availability zone
 * 1 virtual private cloud gateway
 * 10 distinct security groups
+
+## Deployment
+
+See the [OKD documentation](https://docs.okd.io/latest/installing/installing_aws/preparing-to-install-on-aws.html)
+to proceed with deployment.
