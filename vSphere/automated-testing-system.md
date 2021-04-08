@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-It's possible to completely automate the process of installing OpenShift/OKD on vSphere with User Provisioned Infrastructure by chaining together the various functions of [OCT repository](https://github.com/JaimeMagiera/oct) via a wrapper script. 
+It's possible to completely automate the process of installing OpenShift/OKD on vSphere with User Provisioned Infrastructure by chaining together the various functions of [OCT](https://github.com/JaimeMagiera/oct) via a wrapper script. 
 
 ## Steps
 
